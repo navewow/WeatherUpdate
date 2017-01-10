@@ -84,9 +84,6 @@ def makeWebhookResult(data):
     speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
              ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
 
-    print("Response:")
-    print(speech)
-
     return {
         "speech": speech,
         "displayText": speech,
@@ -98,7 +95,4 @@ def makeWebhookResult(data):
 
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
-
-    print "Starting app on port %d" % port
-
     app.run(debug=True, port=port, host='0.0.0.0')
