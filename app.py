@@ -14,6 +14,7 @@ app = Flask(__name__)
 @app.route('/GetMethod', methods=['Get'])
 def GetMethod():
     print("Dummy")
+    return "Hello"
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
