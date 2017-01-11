@@ -37,8 +37,13 @@ def GetMethod():
     request.query = "Weather update in for Chennai today?"
 
     response = request.getresponse()
-
-    print (response.read())
+    
+    resp =  response.read()
+    
+    print(resp)
+    
+    return resp
+   
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
