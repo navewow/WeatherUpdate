@@ -3,17 +3,7 @@
 import urllib
 import json
 import os
-import uuid
 
-try:
-    import apiai
-except ImportError:
-    sys.path.append(
-        os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)
-    )
-    import apiai
-
-CLIENT_ACCESS_TOKEN = '64a9a332b5834a73b61b860b885def02'
 
 
 from flask import Flask
@@ -24,25 +14,8 @@ from flask import make_response
 app = Flask(__name__)
 
 @app.route('/GetMethod', methods=['Get'])
-def GetMethod():
-    my_id = uuid.uuid1()
-    ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
-
-    request = ai.text_request()
-
-    #request.lang = 'de'  # optional, default value equal 'en'
-
-    request.session_id = my_id
-
-    request.query = "Weather update in for Chennai today?"
-
-    response = request.getresponse()
-    
-    resp =  response.read()
-    
-    print(resp)
-    
-    return resp
+def GetMethod():    
+    return "Hello"
    
 
 @app.route('/webhook', methods=['POST'])
